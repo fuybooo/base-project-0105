@@ -1,0 +1,10 @@
+@import "../var";
+
+.el-button {
+  font-weight: 400;
+  vertical-align: inherit; // 多个 button 在一行显示时，父元素的高度会加 1 ，加上此属性可以解决该问题
+  // 自定义按钮样式 dialog-primary
+}
+
+.el-button.mini {
+}
