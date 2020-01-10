@@ -1,6 +1,5 @@
 import Login from '@/modules/login/views/Login'
 import { ProRouteConfig } from '@/router/route.model'
-import exampleRoutes from '@/example/router'
 import frameRoutes from '@/modules/frame/router'
 
 const routes: ProRouteConfig[] = [
@@ -14,7 +13,6 @@ const routes: ProRouteConfig[] = [
     },
   },
   ...frameRoutes,
-  ...exampleRoutes,
   {
     path: '*',
     name: '*',

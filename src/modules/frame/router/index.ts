@@ -2,6 +2,7 @@ import { ProRouteConfig } from '@/router/route.model'
 import Frame from '@/modules/frame/views/Frame'
 import homeRoutes from '@/modules/home/router'
 import personalRoutes from '@/modules/personal/router'
+import exampleRoutes from '@/example/router'
 
 const routes: ProRouteConfig[] = [
   {
@@ -11,6 +12,7 @@ const routes: ProRouteConfig[] = [
     children: [
       ...homeRoutes,
       ...personalRoutes,
+      ...exampleRoutes,
     ],
     meta: {
       title: '主页面',

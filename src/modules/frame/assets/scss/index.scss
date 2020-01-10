@@ -1,0 +1,50 @@
+@import "../../../../assets/scss/var";
+// 头部样式
+.header-box {
+  padding-top: 5px;
+  border-bottom: 1px solid $border-gray-deep;
+  .header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    // 头部左侧logo部分
+    .header-logo-box {
+      display: flex;
+      align-items: center;
+      // logo
+      .header-logo {
+        background: url("../img/logo.png") center no-repeat;
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+      }
+
+      // 标题
+      .header-title {
+        font-size: 20px;
+        margin-left: 20px;
+      }
+    }
+    // 头部右侧用户名称部分
+    .header-toolbar-box {
+      display: flex;
+      align-items: center;
+      .header-display-name {
+        margin-left: 20px;
+      }
+      .header-logout {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+// 左侧菜单样式
+.aside-box {
+  .aside-menu {
+    height: 100%;
+  }
+}
+.common-main-padding {
+  padding: 20px;
+}

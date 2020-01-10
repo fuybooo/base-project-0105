@@ -134,7 +134,24 @@ export function getParentId (list: any[], id: number) {
 export function getAllParentId (list: any[], id: number): any[] {
   return getAllParentById(list, id).map(item => item.id)
 }
-
+export function getAllParentByTreeAndId (tree: any[], id: any, parents: any[] = []): any {
+  const crt = getNodeById(tree, id)
+  if (crt) {
+    // @ts-ignore
+    const parent = crt.parent
+    if (parent) {
+      parents.unshift(parent)
+      const paParent = parent.parent
+      if (paParent) {
+        return getAllParentByTreeAndId(tree, parent.id)
+      }
+    }
+    return parents
+  } else {
+    return parents
+  }
+}
+// 注意，这里的list必须是一个拍平的树结构
 export function getAllParentById (list: any[], id: number | string, parents: any[] = []): any[] {
   const parent = getParentById(list, id)
   if (parent) {
@@ -157,12 +174,12 @@ export function getAllParentAndChildren (list: any[], id: number): any[] {
 /**
  * 根据 value 和 key 获取当前树中的节点
  */
-export function getNodeById (treeData: any[], nodeId: number) {
+export function getNodeById (treeData: any[], nodeId: any) {
   let resNode = null
   reGetNodeByValue(treeData, nodeId)
   return resNode
 
-  function reGetNodeByValue (tree: any[], id: number) {
+  function reGetNodeByValue (tree: any[], id: any) {
     for (let i = 0, l = tree.length; i < l; i ++) {
       const node = tree[i]
       if (node.id === id) {

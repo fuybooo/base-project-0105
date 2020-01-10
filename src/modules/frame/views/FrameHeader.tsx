@@ -1,4 +1,5 @@
 import { Component, Vue } from 'vue-property-decorator'
+const avatar = require('../assets/img/avatar.png')
 
 /**
  * 头部
@@ -7,12 +8,15 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class FrameHeader extends Vue {
   public render () {
     return (
-      <div>
+      <div class={'header-wrap'}>
         <div class={'header-logo-box'}>
-          头像，标题等
+          <div class={'header-logo'}/>
+          <div class={'header-title'}>管理系统</div>
         </div>
         <div class={'header-toolbar-box'}>
-          消息，头像，个人中心，退出等
+          <img class={'header-avatar'} src={avatar} alt="头像"/>
+          <span class={'header-display-name'}>Fuybooo</span>
+          <el-link class={'header-logout'} type="danger"><i class={'el-icon-switch-button'}/></el-link>
         </div>
       </div>
     )

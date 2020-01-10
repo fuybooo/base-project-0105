@@ -7,7 +7,7 @@ const routes: ProRouteConfig[] = [
     name: 'home',
     component: Home,
     meta: {
-      title: '示例',
+      title: '首页',
     },
   },
 ]

@@ -4,6 +4,7 @@ import FrameHeader from '@/modules/frame/views/FrameHeader'
 import FrameAside from '@/modules/frame/views/FrameAside'
 import FrameBreadcrumb from '@/modules/frame/views/FrameBreadcrumb'
 import FrameMain from '@/modules/frame/views/FrameMain'
+import '@/modules/frame/assets/scss/index.scss'
 
 /**
  * 主框架布局方案
@@ -12,11 +13,11 @@ import FrameMain from '@/modules/frame/views/FrameMain'
 export default class Frame extends Vue {
   public render () {
     return (
-      <Layout>
+      <Layout headerClassName={'header-box'}>
         <FrameHeader slot={'header'}/>
-        <Layout direction={'horizontal'}>
+        <Layout direction={'horizontal'} asideClassName={'aside-box'}>
           <FrameAside slot={'aside'}/>
-          <Layout>
+          <Layout headerHeight={'44px'}>
             <FrameBreadcrumb slot={'header'}/>
             <FrameMain/>
           </Layout>

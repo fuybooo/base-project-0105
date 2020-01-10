@@ -13,3 +13,17 @@ export interface HttpRes {
     total?: number,
   }
 }
+
+export interface Menu {
+  id?: string
+  parentId?: any
+  parent?: any
+  index?: string
+  title?: string
+  hidden?: boolean // 不在菜单中显示
+  icon?: string
+  parentName?: string
+  children?: Menu[]
+  meta?: any
+  [p: string]: any
+}
