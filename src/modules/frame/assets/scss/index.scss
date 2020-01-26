@@ -1,8 +1,9 @@
 @import "../../../../assets/scss/var";
 // 头部样式
-.header-box {
+.app-header-box {
   padding-top: 5px;
   border-bottom: 1px solid $border-gray-deep;
+
   .header-wrap {
     display: flex;
     justify-content: space-between;
@@ -26,25 +27,31 @@
         margin-left: 20px;
       }
     }
+
     // 头部右侧用户名称部分
     .header-toolbar-box {
       display: flex;
       align-items: center;
+
       .header-display-name {
         margin-left: 20px;
       }
+
       .header-logout {
         margin-left: 20px;
       }
     }
   }
 }
+
 // 左侧菜单样式
-.aside-box {
+.app-aside-box {
   .aside-menu {
     height: 100%;
   }
 }
-.common-main-padding {
+
+.app-main-box {
   padding: 20px;
+  background-color: #f5f7fa;
 }

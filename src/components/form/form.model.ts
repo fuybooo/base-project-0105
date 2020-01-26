@@ -42,7 +42,7 @@ export interface Schema {
   aliasProp?: string
   // 栅格化时当前列占的宽
   span?: number
-  pattern?: 'view' | undefined
+  pattern?: 'view' | 'create' | undefined
   // 当formPattern为view时使用的组件
   viewComponent?: string
   viewValue?: any

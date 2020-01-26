@@ -4,6 +4,7 @@ import { Menu } from '@/models/common/models'
 import { Route } from 'vue-router'
 import { debounce } from '@/util/fns/fns'
 import { getAllParentByTreeAndId, getNodeById } from '@/util/fns/fns-tree'
+import rn from '@/router/router.name'
 
 /**
  * 面包屑导航
@@ -13,15 +14,16 @@ export default class FrameBreadcrumb extends Vue {
   public baseBread = [ { name: 'home', title: '首页' } ]
   public breadList = [ ...this.baseBread ]
   public menus: Menu[] = []
+
   public render () {
     return (
-      <div class={'flex-box pt10'}>
-        <el-page-header onBack={this.goBack} content={''}/>
+      <div class={ 'flex-box pt10' }>
+        <el-page-header onBack={ this.goBack } content={ '' }/>
         <el-breadcrumb separator="/">
           {
             this.breadList.map((item: any) => (
-              <el-breadcrumb-item key={item.name}>
-                <router-link to={{ name: item.name }}>{item.title}</router-link>
+              <el-breadcrumb-item key={ item.name }>
+                <router-link to={ { name: item.name } }>{ item.title }</router-link>
               </el-breadcrumb-item>
             ))
           }
@@ -42,7 +44,8 @@ export default class FrameBreadcrumb extends Vue {
       let breadMenus: any = []
       if (crtRoute.meta && crtRoute.meta.parentName) {
         // 当前路由是不会显示在菜单导航栏中的
-        const crtParent = me.menus.find((item: any) => item.index === crtRoute.meta.parentName)
+        // const crtParent = me.menus.find((item: any) => item.index === crtRoute.meta.parentName)
+        const crtParent: any = getNodeById(me.menus, crtRoute.meta.parentName)
         if (crtParent) {
           // 大部分的菜单都是后端配置的，但是前端的路由还是控制者部分导航信息的显示
           // @ts-ignore
@@ -58,7 +61,7 @@ export default class FrameBreadcrumb extends Vue {
         // }
       } else {
         const crtMenu: any = getNodeById(me.menus, crtRoute.name)
-        if (crtMenu && crtMenu.index !== 'home') {
+        if (crtMenu && crtMenu.index !== rn.home.name) {
           // @ts-ignore
           breadMenus = [ ...getBreadList(getAllParentByTreeAndId(me.menus, crtMenu.id)), {
             name: crtMenu.index,
@@ -71,13 +74,16 @@ export default class FrameBreadcrumb extends Vue {
       me.breadList = [ ...me.baseBread, ...breadMenus ]
     }, 100)()
   }
+
   public created () {
     this.menus = getMenuByRoutes()
   }
+
   public goBack () {
     this.$router.back()
   }
 }
+
 function getBreadList (list: any[]) {
   return list.map((item: any) => ({ name: item.index, title: item.title }))
 }

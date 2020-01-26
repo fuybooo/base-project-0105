@@ -134,6 +134,7 @@ export function getParentId (list: any[], id: number) {
 export function getAllParentId (list: any[], id: number): any[] {
   return getAllParentById(list, id).map(item => item.id)
 }
+
 export function getAllParentByTreeAndId (tree: any[], id: any, parents: any[] = []): any {
   const crt = getNodeById(tree, id)
   if (crt) {
@@ -151,6 +152,7 @@ export function getAllParentByTreeAndId (tree: any[], id: any, parents: any[] = 
     return parents
   }
 }
+
 // 注意，这里的list必须是一个拍平的树结构
 export function getAllParentById (list: any[], id: number | string, parents: any[] = []): any[] {
   const parent = getParentById(list, id)

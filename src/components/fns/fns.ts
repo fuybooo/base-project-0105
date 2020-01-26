@@ -48,31 +48,30 @@ export function setProperty (list: Schema[] | Column[], prop: string, value: Sch
 export function transferRules (rules: any) {
   const newRules: any = {}
   const keys = Object.keys(rules)
-  // @ts-ignore
-  keys.forEach(item => newRules[item] = transferRule.bind(this)(rules[item]))
+  keys.forEach(item => newRules[item] = transferRule(rules[item]))
   return newRules
 }
 
 export function transferRule (itemRule: any[]) {
-  // @ts-ignore
-  const me = this
   return itemRule.map((rule: any) => {
     let message: string = ''
     if ('required' in rule) {
-      message = me.$t(rule.message || 'validate.required')
+      message = rule.message || '必填项'
     } else if ('max' in rule || 'min' in rule) {
       if ('max' in rule && 'min' in rule) {
-        message = me.$t(rule.message || 'validate.limit', rule)
+        message = rule.message || `输入最少${rule.min}最多${rule.max}个字符之间`
+      } else if ('max' in rule) {
+        message = rule.message || `输入最多${rule.max}个字符`
       } else {
-        message = me.$tc(rule.message || ('max' in rule ? 'validate.max' : 'validate.min'), rule.max || rule.min)
+        message = rule.message || `输入最少${rule.min}个字符`
       }
     } else {
-      // todo 给其他情况赋值
-      message = me.$t(rule.message)
+      message = rule.message || '输入不符合要求'
     }
     return {
       ...rule,
       message,
+      trigger: rule.trigger || ['change', 'blur'],
     }
   })
 }

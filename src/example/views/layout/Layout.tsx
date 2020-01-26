@@ -11,12 +11,13 @@ export default class LayoutExample extends Vue {
       headerHeight: '30px',
       headerClassName: 'header-class-name',
       direction: 'horizontal',
-    }
+    },
   }
+
   public render () {
     return (
-      <Layout {...this.props}>
-        <div slot={'aside'}>
+      <Layout { ...this.props }>
+        <div slot={ 'aside' }>
           aside
         </div>
         main

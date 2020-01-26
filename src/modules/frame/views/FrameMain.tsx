@@ -7,7 +7,7 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class FrameMain extends Vue {
   public render () {
     return (
-      <router-view class={this.$route.meta.noPadding ? 'no-padding' : 'common-main-padding'}/>
+      <router-view/>
     )
   }
 }

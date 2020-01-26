@@ -1,5 +1,3 @@
-import { FRAMEWORK_KEY_LIST } from '@/models/keys/keys'
-
 /**
  * @Description: 基础而且通用的函数
  * @date 2019-06-17
@@ -435,11 +433,24 @@ export function getTime (type = 'yyyy-MM-dd HH:mm:ss', dateInstance?: Date) {
 }
 
 /* 生成 uuid */
-function guid () {
+export function guid () {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
     // tslint:disable-next-line:no-bitwise
     const r = Math.random() * 16 | 0
     // tslint:disable-next-line:no-bitwise
     return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
   })
+}
+
+export function getCalcLength (str: string) {
+  let len = 0
+  for (let i = 0; i < str.length; i ++) {
+    const item = str[i]
+    if (/[a-zA-Z0-9_]/.test(item)) {
+      len += 0.5
+    } else {
+      len += 1
+    }
+  }
+  return len
 }

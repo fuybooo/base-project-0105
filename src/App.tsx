@@ -4,7 +4,7 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class App extends Vue {
   public render () {
     return (
-      <router-view class={'app-' + this.$route.name}/>
+      <router-view class={ 'app-' + this.$route.name }/>
     )
   }
 }

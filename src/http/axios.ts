@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import axios, { AxiosInstance } from 'axios'
-import { dc, deepCompare, deepTrim, gc, lg } from '@/util/fns/fns'
+import { deepCompare, deepTrim, lg } from '@/util/fns/fns'
 import { isDev, isProd } from '@/config/config.fn'
 import { KEY_OPEN_STATIC, KEY_STATIC_INCLUDE, KEY_TOKEN } from '@/models/keys/keys'
 import { debugReq } from '@/http/debugger'
 import { baseURL, closeStatic, openStatic } from '@/http/http.model'
 import { IUrl, staticPath, urlType } from '@/models/urls/url-util'
+import rn from '@/router/router.name'
 
 export function create (customOptions?: any, options?: any): AxiosInstance {
   const localAxios = axios.create({
@@ -27,7 +28,7 @@ export function create (customOptions?: any, options?: any): AxiosInstance {
     if (res.data.code === 40011) {
       if (isProd()) {
         // 正式环境跳转到登录界面
-        window._vueInstance_.$router.push({ name: 'login' })
+        window._vueInstance_.$router.push(rn.login)
       }
     }
     if (res.data.code === 200) {

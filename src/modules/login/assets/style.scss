@@ -1,0 +1,43 @@
+$login-bg: #303133;
+$login-box-bg: #111;
+.login-wrap {
+  min-height: 400px;
+  position: relative;
+  height: 100%;
+  background-color: $login-bg;
+  .login-title {
+    text-align: center;
+    margin-top: 0;
+    color: #ccc;
+  }
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-80%);
+    background-color: $login-box-bg;
+    width: 400px;
+    padding: 40px 30px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 5px $login-box-bg;
+    input.el-input__inner {
+      background-color: $login-bg;
+      border-color: $login-box-bg;
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px $login-bg inset;
+      }
+    }
+    .el-form-item__label {
+      display: none;
+    }
+    .login-button {
+      width: 100%;
+      background-color: $login-bg;
+      border-color: $login-box-bg;
+      &:hover, &:focus, &:active {
+        color: $login-box-bg;
+      }
+    }
+  }
+}

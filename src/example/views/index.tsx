@@ -5,7 +5,7 @@ import '@/example/assets/style.scss'
 export default class Example extends Vue {
   public render () {
     return (
-      <router-view class={'example-layout h'}/>
+      <router-view/>
     )
   }
 }

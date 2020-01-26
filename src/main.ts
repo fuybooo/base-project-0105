@@ -7,6 +7,8 @@ import App from './App'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+// 引入基础组件
+import '@/components'
 // 事件发送
 import '@/models/global-event/global-event'
 // 请求
