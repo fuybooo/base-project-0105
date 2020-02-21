@@ -40,7 +40,7 @@
     "yorkie": "^2.0.0"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "vue-cli-service lint"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,vue}": [
