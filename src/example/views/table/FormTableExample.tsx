@@ -32,7 +32,7 @@ export default class FormTableExample extends Vue {
     const me: any = this
     return {
       'row-click' ({ row }: any) {
-        console.log(row, me, 'row-click')
+        // console.log(row, me, 'row-click')
       },
     }
   }

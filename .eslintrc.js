@@ -11,6 +11,7 @@ module.exports = {
   rules: {
     // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // 'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-console': 'error',
     // allow paren-less arrow functions
     'no-new-func': 0,
     'arrow-parens': 0,

@@ -324,7 +324,7 @@ export const allSchema: Schema[] = [
       // 这种绑定无法访问this
       on: {
         change (val: any) {
-          console.log(val, 'on')
+          // console.log(val, 'on')
         },
       },
     },

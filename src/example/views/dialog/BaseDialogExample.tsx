@@ -30,6 +30,6 @@ export default class BaseDialogExample extends Vue {
   }
 
   public ok () {
-    console.log('ok')
+    // console.log('ok')
   }
 }
