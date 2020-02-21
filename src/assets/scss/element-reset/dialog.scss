@@ -1,6 +1,9 @@
 @import "../var";
 
 .base-dialog {
+  .el-dialog {
+    background-color: #fff;
+  }
   .el-dialog__header {
     //border-bottom: 1px solid $box-border;
   }

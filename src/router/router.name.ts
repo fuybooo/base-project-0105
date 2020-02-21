@@ -16,6 +16,7 @@ const rn = {
   exMultiFuncForm: { name: 'ex-multi-func-form' },
   exDialog: { name: 'ex-dialog' },
   exBaseDialog: { name: 'ex-base-dialog' },
+  exCompleteDialog: { name: 'ex-complete-dialog' },
   exNormalHttp: { name: 'ex-normalHttp' },
   exLayout: { name: 'ex-layout' },
   exTest1: { name: 'ex-test1' },

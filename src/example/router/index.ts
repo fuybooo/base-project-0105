@@ -13,7 +13,8 @@ import SlotFormExample from '@/example/views/form/SlotFormExample'
 import LoopFormExample from '@/example/views/form/LoopFormExample'
 import MultiFuncFormExample from '@/example/views/form/MultiFuncFormExample'
 import DialogExample from '@/example/views/dialog'
-import BaseDialogExample from '@/example/views/dialog/BaseTableExample'
+import BaseDialogExample from '@/example/views/dialog/BaseDialogExample'
+import CompleteDialogExample from '@/example/views/dialog/CompleteDialogExample'
 import rn from '@/router/router.name'
 
 const routes: ProRouteConfig[] = [
@@ -116,6 +117,14 @@ const routes: ProRouteConfig[] = [
             component: BaseDialogExample,
             meta: {
               title: '基础弹出层示例',
+            },
+          },
+          {
+            path: 'completeDialog',
+            ...rn.exCompleteDialog,
+            component: CompleteDialogExample,
+            meta: {
+              title: '完整的弹出层示例',
             },
           },
         ],

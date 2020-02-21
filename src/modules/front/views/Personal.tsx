@@ -1,11 +1,14 @@
 import { Component, Vue } from 'vue-property-decorator'
 
+/**
+ * 首页
+ */
 @Component({})
-export default class BaseDialogExample extends Vue {
+export default class Personal extends Vue {
   public render () {
     return (
       <div>
-        <div class={'example-introduce'}>这是最简单的弹出层使用方式</div>
+        个人中心
       </div>
     )
   }
