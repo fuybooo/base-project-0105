@@ -36,26 +36,15 @@
     "sass": "^1.23.7",
     "sass-loader": "^8.0.0",
     "typescript": "~3.5.3",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "yorkie": "^2.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.css": [
-      "stylelint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "src/**/*.scss": [
-      "stylelint --fix --syntax scss",
-      "prettier --write",
-      "git add"
-    ],
-    "src/**/*.{js,jsx}": [
-      "eslint --fix",
+    "*.{js,jsx,ts,tsx,vue}": [
+      "vue-cli-service lint",
       "git add"
     ]
   }
